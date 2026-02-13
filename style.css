@@ -1,0 +1,28 @@
+body {
+    background-color: rgb(77, 98, 99);
+}
+body.inicialberenice {
+    background-color: #555;
+}
+
+h1 {
+    text-align: center;
+}
+h2 {
+    text-align: center;
+}
+#caixa {
+    width: 30em;
+    margin: auto;
+    background-color: white;
+    padding: 1em;
+}
+
+#proximo {
+    margin-top: 2em;
+    text-align: center;
+}
+#proximo a {
+    border: solid 3px rgb(6, 60, 115);
+    padding: 0.5em
+}
