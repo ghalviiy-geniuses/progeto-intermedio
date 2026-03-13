@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+    <head>
+        <title>Jogo de Adivinhação</title>
+        <style>
+        /* Centraliza tudo na tela */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        input, button {
+            padding: 10px;
+            margin: 5px;
+        }
+    </style>
+    </head>
+    <body>
+        <h2>Jogo da Sorte</h2>
+        <input type="text" id="resposta" />
+        <button onclick="verificar()">OK</button>
+        <p id="resposta"></p>
+
+        <script>
+            let n_sorte = Math.round(Math.random() * 100)
+            let resposta = document.getElementById('resposta')
+
+            function verificar() {
+                if (n_sorte == resposta.value) {
+                    document.getElementById('resposta').innerHTML = 'Acertou!'
+                } else if ( n_sorte > resposta.value) {
+                    document.getElementById('resposta').innerHTML = 'É maior!'
+                } else {
+                    document.getElementById('resposta').innerHTML = 'É menor!'
+                }
+            }
+        </script>
+    </body>
+    
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<head>    
+    <title>Calculadora</title>
+<body>
+    <h2>Calculadora</h2>
+    <input type="text" name="val01" />
+    <br /> 
+    
+    <button onclick="soma()">+</button>
+    <button onclick="subt()">-</button>
+    <button onclick="mult()">*</button>
+    <button onclick="divi()">/</button>
+    <br />
+
+    <input type="text" name="val02" />
+    <br />
+    <button onclick="igual()">=</button>
+    <br />
+    <input type="text" name="res" readonly />
+
+    <script>
+        function igual () {
+            let vals = getVals()
+            let res = document.getElementsByName('res')[0]
+        }
+        function soma () {
+            let vals = getVals()
+            let res = document.getElementsByName('res')[0]
+            res.value = Number(vals.val01) + Number(vals.val02)
+        }
+        function subt () {
+            let vals = getVals()
+            let res = document.getElementsByName('res')[0]
+            res.value = Number(vals.val01) - Number(vals.val02)
+        }
+        function mult () {
+            let vals = getVals()
+            let res = document.getElementsByName('res')[0]
+            res.value = Number(vals.val01) * Number(vals.val02)
+        }
+        function divi () {
+            let vals = getVals()
+            let res = document.getElementsByName('res')[0]
+            res.value = Number(vals.val01) / Number(vals.val02)
+        }
+
+        function getVals() {
+            return {
+                val01: document.getElementsByName('val01')[0].value,
+                val02: document.getElementsByName('val02')[0].value,
+            }
+        }
+    </script>
+</body>
+</head>
+
+
+
+
+
+
+
+
+
+
+
