@@ -1,53 +1,65 @@
-
 <!DOCTYPE html>
-    <head>
-        <title>Jogo de Adivinhação</title>
-        <style>
-        /* Centraliza tudo na tela */
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: sans-serif;
-            background-color: #f0f0f0;
+<html>
+<head>
+    <title>Jogo de Adivinhação</title>
+</head>
+
+<body>
+    <h2>Jogo da Sorte</h2>
+    <input type="number" min="0" max="100" id="resposta" name="adivinha" />
+    <button onclick="verificar()">OK</button>
+    <button onclick="window.location.reload()">reset</button>
+    
+    <div>
+        <img id="bigger" src="bigger.png" />
+        <img id="equal" src="equal.png" />
+        <img id="smaller" src="smaller.png" />
+    </div>
+
+    <div>
+        <p> <a href="sorteio.html">
+        <img src="return.png" alt="" style="width: 3em; display: inline-block;">
+        </a></p>
+    </div>
+
+    <script>
+        let n_sorte = Math.round(Math.random() * 100)
+        let resposta = document.getElementById('resposta')
+        let bigger = document.getElementById('bigger')
+        let equal = document.getElementById('equal')
+        let smaller = document.getElementById('smaller')
+        let audio = new Audio('som.mp3')
+        audio.loop = true
+
+        function verificar() {
+            if (n_sorte < resposta.value) {
+                bigger.style.display = 'block'
+                equal.style.display = 'none'
+                smaller.style.display = 'none'
+                audio.pause()
+            }
+            else if (n_sorte == resposta.value) {
+                equal.style.display = 'block'
+                smaller.style.display = 'none'
+                bigger.style.display = 'none'
+                audio.play()
+            }
+            else {
+                smaller.style.display = 'block'
+                equal.style.display = 'none'
+                bigger.style.display = 'none'
+                audio.pause()
+            }
         }
 
-        .container {
-            text-align: center;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
+    </script>
 
-        input, button {
-            padding: 10px;
-            margin: 5px;
+    <style>
+        img {
+            display: none;
         }
     </style>
-    </head>
-    <body>
-        <h2>Jogo da Sorte</h2>
-        <input type="text" id="resposta" />
-        <button onclick="verificar()">OK</button>
-        <p id="resposta"></p>
 
-        <script>
-            let n_sorte = Math.round(Math.random() * 100)
-            let resposta = document.getElementById('resposta')
+</body>
 
-            function verificar() {
-                if (n_sorte == resposta.value) {
-                    document.getElementById('resposta').innerHTML = 'Acertou!'
-                } else if ( n_sorte > resposta.value) {
-                    document.getElementById('resposta').innerHTML = 'É maior!'
-                } else {
-                    document.getElementById('resposta').innerHTML = 'É menor!'
-                }
-            }
-        </script>
-    </body>
-    
 </html>
